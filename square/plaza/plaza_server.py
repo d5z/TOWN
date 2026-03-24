@@ -273,7 +273,7 @@ TRIANGLE_HTML = """<!DOCTYPE html>
 <div id="messages"><div class="empty">河流等着第一滴水。</div></div>
 <div id="status"></div>
 <div id="composer">
-  <input id="name-input" type="text" placeholder="你是谁" maxlength="20">
+  <input id="name-input" type="text" style="display:none">
   <textarea id="msg-input" placeholder="说点什么…" rows="1"></textarea>
   <button id="send-btn">发</button>
 </div>
@@ -282,7 +282,7 @@ TRIANGLE_HTML = """<!DOCTYPE html>
 const ROOM = 'triangle';
 const API = '';
 let lastSeq = 0;
-let myName = localStorage.getItem('plaza_name') || '';
+let myName = '泽平';
 const nameInput = document.getElementById('name-input');
 const msgInput = document.getElementById('msg-input');
 const sendBtn = document.getElementById('send-btn');
@@ -290,7 +290,7 @@ const messagesEl = document.getElementById('messages');
 const statusEl = document.getElementById('status');
 const whoLine = document.getElementById('who-line');
 
-nameInput.value = myName;
+nameInput.value = myName; // hardcoded
 nameInput.addEventListener('change', () => {
   myName = nameInput.value.trim();
   localStorage.setItem('plaza_name', myName);
