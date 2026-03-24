@@ -1,0 +1,15 @@
+[Unit]
+Description=beings.town Plaza — 第八条河
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/plaza
+ExecStart=/usr/local/bin/uvicorn plaza_server:app --host 0.0.0.0 --port 3202
+Restart=always
+RestartSec=5
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
